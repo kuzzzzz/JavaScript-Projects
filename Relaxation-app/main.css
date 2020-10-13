@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background: #22384c url('./img/christian-joudrey-mWRR1xj95hg-unsplash.jpg') no-repeat center center/cover;
+    color: #fff;
+    min-height: 100vh;
+    overflow: hidden;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin:0;
+    font-family: 'Montserrat', sans-serif
+}
+
+.container{
+    
+}
