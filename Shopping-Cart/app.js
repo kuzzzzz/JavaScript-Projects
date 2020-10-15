@@ -21,7 +21,7 @@ class Products {
       let data = await result.json();
 
       let products = data.items;
-      products = products.map(item => {
+      products = products.map((item) => {
         const { title, price } = item.fields;
         const { id } = item.sys;
         const image = item.fields.image.fields.file.url;
@@ -35,10 +35,10 @@ class Products {
 }
 // display products
 class UI {
-    displayProducts(products){
-        let results = ' ';
-        products.forEach(elem=> {
-            results += `
+  displayProducts(products) {
+    let results = " ";
+    products.forEach((elem) => {
+      results += `
               <article class="product">
                 <div class="img-container">
                     <img src=${elem.image} alt="product" class="product-img">
@@ -51,20 +51,48 @@ class UI {
                 <h4>$${elem.price}</h4>
             </article>
             `;
+    });
+    productsDOM.innerHTML = results;
+  }
+  getBagButtons() {
+    const buttons = [
+      ...document.querySelectorAll(".bag-btn"),
+    ]; /* return a node list but use the spread operator to turn it to an array */
+    buttons.forEach((button) => {
+      let id = button.dataset.id;
+      let inCart = cart.find((item) => item.id === id);
+      if (inCart) {
+        button.innerHTML = "In Cart";
+        button.disabled = true;
+      } else {
+        button.addEventListener("click", (event) => {
+          event.target.innerHTML = "In Cart";
+          event.target.disabled = true;
+        //   
         });
-
-        productsDOM.innerHTML = results;
-    }
-
-
+      }
+    });
+  }
 }
 // local storage
-class Storage {}
+class Storage {
+  static saveProducts(products) {
+    localStorage.setItem("products", JSON.stringify(products));
+  }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   const ui = new UI();
   const products = new Products();
 
   // get all products
-  products.getProducts().then(products => ui.displayProducts(products));
+  products
+    .getProducts()
+    .then((products) => {
+      ui.displayProducts(products);
+      Storage.saveProducts(products);
+    })
+    .then(() => {
+      ui.getBagButtons();
+    });
 });
