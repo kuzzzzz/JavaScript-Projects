@@ -5,6 +5,7 @@ h1{
 main{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 a {
@@ -13,7 +14,7 @@ a {
   padding: 1rem;
   color: black;
   background-color: coral;
-  margin: 2rem;
+  margin-left: 2rem;
   width: fit-content;
   border-radius: 1rem;
 }
