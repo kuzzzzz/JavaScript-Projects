@@ -1,5 +1,12 @@
 // Variables
+const client = contentful.createClient({
+  // This is the space ID. A space is like a project folder in Contentful terms
+  space: "v1iiuq1vdbh0",
+  // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+  accessToken: "LjDWYrVd88J9G_qhHjcjEmZeJ11BZxWT0Kv3HL7z30Y",
+});
 
+// console.log(client);
 const cartBtn = document.querySelector(".cart-btn");
 const closeCartBtn = document.querySelector(".close-cart");
 const clearCartBtn = document.querySelector(".clear-cart");
@@ -19,10 +26,16 @@ let buttonsDOM = [];
 class Products {
   async getProducts() {
     try {
+      let contentful = await client.getEntries({
+        content_type: "comfyHouseProducts",
+      });
+
       let result = await fetch("products.json");
       let data = await result.json();
 
-      let products = data.items;
+      let products = [...data.items, ...contentful.items];
+
+      console.log(products);
       products = products.map((item) => {
         const { title, price } = item.fields;
         const { id } = item.sys;
