@@ -5,6 +5,36 @@
 }
 
 body{
+    background-image: url(./img/pexels-flo-dahm-458917.jpg);
+    background-size: cover;
+    background-position:center center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     font-family: Poppins, sans-serif;
     margin: 0;
 }
+
+h1{
+    font-size: 4rem;
+}
+
+.countdown-container{
+    display: flex;
+}
+.big-text{
+    font-weight: bold;
+    font-size: 6rem;
+    line-height: 1;
+    margin: 0 2rem;
+}
+
+.time-box{
+    text-align: center;
+}
+span{
+    font-size: 1.3rem;
+}
+
