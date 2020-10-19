@@ -3,7 +3,9 @@
 *{
     box-sizing: border-box;
 }
-
+html{
+    font-size: 66.2%;
+}
 body{
     background-image: url(./img/pexels-flo-dahm-458917.jpg);
     background-size: cover;
@@ -19,6 +21,7 @@ body{
 
 h1{
     font-size: 4rem;
+    /* text-align: center; */
 }
 
 .countdown-container{
