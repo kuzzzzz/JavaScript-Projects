@@ -17,19 +17,47 @@ body {
   margin: 0;
 }
 
-.quiz-container{
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
-    width: 600px;
-    max-width: 100%;
+.quiz-container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+  width: 600px;
+  max-width: 100%;
 }
 
-.quiz-header{
-  padding: 2rem;
+.quiz-header {
+  padding: 4rem;
 }
 
-ul{
+h2 {
+  margin: 0;
+}
+
+ul {
   list-style: none;
   padding: 0;
+}
+label{
+  cursor: pointer;
+}
+ul li {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+}
+
+button {
+  background-color: #5d89bd;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-family: inherit;
+  font-size: 1.1rem;
+  width: 100%;
+  padding: 1.3rem;
+  transition: background-color 0.7s;
+}
+
+button:hover {
+  background-color: #3968a0;
 }

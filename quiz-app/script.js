@@ -40,3 +40,39 @@ const quizData = [
     correct: "d",
   },
 ];
+
+const questionEl = document.querySelector(".questions");
+
+const a_text = document.querySelector(".a_text");
+const b_text = document.querySelector(".b_text");
+const c_text = document.querySelector(".c_text");
+const d_text = document.querySelector(".d_text");
+const submitBtn = document.querySelector(".submit-button");
+
+let currentQuiz = 0;
+let answer = undefined;
+
+loadQuiz();
+
+function loadQuiz() {
+  const currentQuizData = quizData[currentQuiz];
+  questionEl.innerHTML = currentQuizData.question;
+
+  a_text.innerText = currentQuizData.a;
+  b_text.innerText = currentQuizData.b;
+  c_text.innerText = currentQuizData.c;
+  d_text.innerText = currentQuizData.d;
+}
+
+function getSelected() {
+  const answers = document.querySelectorAll(".answer");
+  answers.forEach((answer) => {
+    console.log(answer.checked);
+  });
+}
+
+submitBtn.addEventListener("click", () => {
+  currentQuiz++;
+
+  getSelected();
+});
