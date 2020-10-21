@@ -34,6 +34,9 @@ body {
   text-align: center;
 }
 
+.timer{
+  font-size: 2rem;
+}
 h2 {
   margin: 0;
 }

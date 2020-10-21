@@ -57,6 +57,8 @@ const b_text = document.querySelector(".b_text");
 const c_text = document.querySelector(".c_text");
 const d_text = document.querySelector(".d_text");
 const submitBtn = document.querySelector(".submit-button");
+const timer = document.querySelector(".timer");
+const quizeheader = document.querySelector(".quiz-header");
 
 let currentQuiz = 0;
 let score = 0;
@@ -118,3 +120,23 @@ submitBtn.addEventListener("click", () => {
     }
   }
 });
+
+let count = 21;
+
+setInterval(() => {
+  if (count > 0) {
+    count--;
+  } else {
+    return count;
+  }
+  if (count == 0) {
+    submitBtn.disabled = true;
+    quizeheader.classList.add("quiz-result");
+    quizeheader.innerHTML = `
+          <h2> Time is up your score is ${score} </h2>
+          <button style="margin-top:2rem;" onclick="location.reload()">Play again</button>
+          `;
+  }
+
+  timer.innerText = count;
+}, 1000);
