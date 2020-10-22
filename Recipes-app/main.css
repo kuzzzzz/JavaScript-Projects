@@ -31,6 +31,9 @@ img {
 
 .mobile-container {
   background-color: #fff;
+  overflow: hidden;
+  border-radius: 3px;
+  box-shadow: 0 0 10px 2px #3333331a;
   width: 400px;
 }
 
@@ -56,23 +59,79 @@ header button {
 }
 
 .fav-container {
+  background-color: rgba(221, 173, 219, 0.322);
   padding: 1rem;
   text-align: center;
 }
 
-.fav-meals{
+.fav-meals {
   display: flex;
   list-style-type: none;
   padding: 0;
 }
 
 .fav-meals li {
-
+  width: 85px;
+  margin: auto;
 }
 
-.fav-meals li img{
+.fav-meals li img {
   border-radius: 50%;
+  box-shadow: 0 0 10px 2px #3333331a;
+  border: 2px solid #fff;
   object-fit: cover;
-  height: 100px;
-  width: 100px;
+  height: 75px;
+  width: 75px;
+}
+
+.fav-meals li span {
+  font-size: 0.9rem;
+}
+
+.meal {
+  border-radius: 3px;
+  box-shadow: 0 0 10px 2px #3333331a;
+  margin: 1.5rem;
+  overflow: hidden;
+}
+
+.meal-header {
+  position: relative;
+}
+
+.meal-header .random {
+  position: absolute;
+  top: 1rem;
+  background-color: #fff;
+  padding: 0.25rem 1rem;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.meal-header img {
+  object-fit: cover;
+  height: 250px;
+  width: 100%;
+}
+
+.meal-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.meal-body h4 {
+  margin: 0;
+}
+
+.meal-body button {
+  border: none;
+  background-color: transparent;
+  color: rgb(197, 188, 188);
+  font-size: 1.2rem;
+}
+.meal-body svg.active {
+  stroke: none;
+  fill: rgb(224, 18, 69);
 }

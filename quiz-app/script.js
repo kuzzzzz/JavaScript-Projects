@@ -123,20 +123,19 @@ submitBtn.addEventListener("click", () => {
 
 let count = 21;
 
-setInterval(() => {
+function quizTimer() {
   if (count > 0) {
     count--;
   } else {
-    return count;
-  }
-  if (count == 0) {
     submitBtn.disabled = true;
     quizeheader.classList.add("quiz-result");
     quizeheader.innerHTML = `
           <h2> Time is up your score is ${score} </h2>
           <button style="margin-top:2rem;" onclick="location.reload()">Play again</button>
           `;
+    return count;
   }
-
   timer.innerText = count;
-}, 1000);
+}
+
+setInterval(quizTimer, 1000);
