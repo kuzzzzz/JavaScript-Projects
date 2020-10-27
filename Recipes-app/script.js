@@ -1,6 +1,3 @@
-// document.querySelector(".button").addEventListener("click", () => {
-//   document.querySelector(".red").classList.toggle("active");
-// });
 const meals = document.getElementById("meals");
 
 getRandomMeal();
@@ -55,6 +52,9 @@ function addMeal(mealData, random = false) {
                     </button>
                 </div>
   `;
-
+  const btn = meal.querySelector(".meal-body .button .red");
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("active");
+  });
   meals.appendChild(meal);
 }
