@@ -1,6 +1,7 @@
 const meals = document.getElementById("meals");
 
 getRandomMeal();
+fetchFavMeals();
 
 async function getRandomMeal() {
   const res = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
@@ -12,9 +13,14 @@ async function getRandomMeal() {
 }
 
 async function getMealById(id) {
-  const meal = await fetch(
+  const resp = await fetch(
     "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id
   );
+
+  const respData = await resp.json();
+  const meal = respData.meals[0];
+
+  return meal;
 }
 
 async function getMealsBySearch(term) {
@@ -54,13 +60,51 @@ function addMeal(mealData, random = false) {
   `;
   const btn = meal.querySelector(".meal-body .button .red");
   btn.addEventListener("click", () => {
-    btn.classList.toggle("active");
+    if (btn.classList.contains("active")) {
+      removeMealFromLS(mealData.idMeal);
+      btn.classList.remove("active");
+    } else {
+      addmealToLS(mealData.idMeal);
+      btn.classList.add("active");
+    }
   });
   meals.appendChild(meal);
 }
 
-function addmeals(mealId) {
-  const mealIds = getMealById()
+function addmealToLS(mealId) {
+  const mealIds = getMealsFromLS();
 
-  localStorage.setItem("mealIds", JSON.stringify([...mealIds, mealId]))
+  localStorage.setItem("mealIds", JSON.stringify([...mealIds, mealId]));
+}
+
+function removeMealFromLS(mealId) {
+  const mealIds = getMealsFromLS();
+  
+  localStorage.setItem(
+    "mealIds",
+    JSON.stringify(mealIds.filter((id) => id !== mealId))
+  );
+}
+
+function getMealsFromLS() {
+  const mealIds = JSON.parse(localStorage.getItem("mealIds"));
+ 
+  return mealIds === null ? [] : mealIds;
+}
+
+async function fetchFavMeals() {
+  // clean the container
+
+  const mealIds = getMealsFromLS();
+
+  const meals = [];
+  for (let i = 0; i < mealIds.length; i++) {
+    const mealId = mealIds[i];
+
+   meal = await getMealById(mealId);
+     
+    meals.push(meal);
+    // addMealFav(meal);
+  }
+;
 }
