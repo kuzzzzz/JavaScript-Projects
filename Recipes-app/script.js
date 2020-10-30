@@ -106,5 +106,7 @@ async function fetchFavMeals() {
     meals.push(meal);
     // addMealFav(meal);
   }
+
+  // Just keeping the streak
 ;
 }
