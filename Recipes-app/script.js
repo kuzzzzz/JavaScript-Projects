@@ -23,6 +23,7 @@ async function getMealById(id) {
   return meal;
 }
 
+
 async function getMealsBySearch(term) {
   const meals = await fetch(
     "https://www.themealdb.com/api/json/v1/1/search.php?s=" + term
@@ -111,5 +112,6 @@ async function fetchFavMeals() {
   // Also Just keeping up the streak been working on a wp site so i have been really busy
   // Today is sunday spent the day with my gf hopefully I can get back to coding on here as from 2moro
   // Today is monday,still working on the wordpress site mhen i can't wait to get back to this
+  // And it's tuesdday and I am still working on wordpress site really hoping i can finish soon taking all my time
 ;
 }
