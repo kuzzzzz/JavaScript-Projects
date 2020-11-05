@@ -5,10 +5,9 @@ fetchFavMeals();
 
 async function getRandomMeal() {
   const res = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
-
   const respData = await res.json();
-  const randomMeal = respData.meals[0];
 
+  const randomMeal = respData.meals[0];
   addMeal(randomMeal, true);
 }
 
@@ -22,7 +21,6 @@ async function getMealById(id) {
 
   return meal;
 }
-
 
 async function getMealsBySearch(term) {
   const meals = await fetch(
@@ -80,7 +78,7 @@ function addmealToLS(mealId) {
 
 function removeMealFromLS(mealId) {
   const mealIds = getMealsFromLS();
-  
+
   localStorage.setItem(
     "mealIds",
     JSON.stringify(mealIds.filter((id) => id !== mealId))
@@ -89,7 +87,7 @@ function removeMealFromLS(mealId) {
 
 function getMealsFromLS() {
   const mealIds = JSON.parse(localStorage.getItem("mealIds"));
- 
+
   return mealIds === null ? [] : mealIds;
 }
 
@@ -102,8 +100,8 @@ async function fetchFavMeals() {
   for (let i = 0; i < mealIds.length; i++) {
     const mealId = mealIds[i];
 
-   meal = await getMealById(mealId);
-     
+    meal = await getMealById(mealId);
+
     meals.push(meal);
     // addMealFav(meal);
   }
@@ -113,5 +111,5 @@ async function fetchFavMeals() {
   // Today is sunday spent the day with my gf hopefully I can get back to coding on here as from 2moro
   // Today is monday,still working on the wordpress site mhen i can't wait to get back to this
   // And it's tuesdday and I am still working on wordpress site really hoping i can finish soon taking all my time
-;
+  // This should be like the sixth day i took a break to work on the wordpress site hopefully 2moro i can get back // to thid
 }
