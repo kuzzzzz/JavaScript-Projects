@@ -1,4 +1,4 @@
-const meals = document.getElementById("meals");
+const mealsEl = document.getElementById("meals");
 const favoriteContainer = document.getElementById("fav-meals");
 
 const searchTerm = document.getElementById("search-term");
@@ -74,7 +74,6 @@ function addMeal(mealData, random = false) {
     } else {
       addmealToLS(mealData.idMeal);
       btn.classList.add("active");
-      location.reload();
     }
 
     // clean the container
@@ -116,7 +115,6 @@ async function fetchFavMeals() {
     meal = await getMealById(mealId);
 
     addMealFav(meal);
-   
   }
 
   // Finally back to working on my side projects
@@ -154,12 +152,16 @@ function addMealFav(mealData) {
 
 searchBtn.addEventListener("click", async () => {
   // clean container
-  // mealsEl.innerHTML = "";
+  mealsEl.innerHTML = "";
   const search = searchTerm.value;
   const meals = await getMealsBySearch(search);
-
+  if (meals) {
     meals.forEach((meal) => {
       addMeal(meal);
     });
-
+  }else{
+  alert(`enter a different food Because Americans don't eat  ${search} 
+  example: cake
+  `)
+  }
 });
