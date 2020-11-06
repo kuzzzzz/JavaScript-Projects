@@ -1,4 +1,8 @@
 const meals = document.getElementById("meals");
+const favoriteContainer = document.getElementById("fav-meals");
+
+const searchTerm = document.getElementById("search-term");
+const searchBtn = document.getElementById("search");
 
 getRandomMeal();
 fetchFavMeals();
@@ -23,9 +27,14 @@ async function getMealById(id) {
 }
 
 async function getMealsBySearch(term) {
-  const meals = await fetch(
+  const resp = await fetch(
     "https://www.themealdb.com/api/json/v1/1/search.php?s=" + term
   );
+
+  const respData = await resp.json();
+  const meals = respData.meals;
+
+  return meals;
 }
 
 function addMeal(mealData, random = false) {
@@ -65,7 +74,12 @@ function addMeal(mealData, random = false) {
     } else {
       addmealToLS(mealData.idMeal);
       btn.classList.add("active");
+      location.reload();
     }
+
+    // clean the container
+    favoriteContainer.innerHTML = "";
+    fetchFavMeals();
   });
   meals.appendChild(meal);
 }
@@ -94,22 +108,58 @@ function getMealsFromLS() {
 async function fetchFavMeals() {
   // clean the container
 
+  favoriteContainer.innerHTML = "";
   const mealIds = getMealsFromLS();
 
-  const meals = [];
   for (let i = 0; i < mealIds.length; i++) {
     const mealId = mealIds[i];
-
     meal = await getMealById(mealId);
 
-    meals.push(meal);
-    // addMealFav(meal);
+    addMealFav(meal);
+   
   }
 
-  // Just keeping the streak
-  // Also Just keeping up the streak been working on a wp site so i have been really busy
-  // Today is sunday spent the day with my gf hopefully I can get back to coding on here as from 2moro
-  // Today is monday,still working on the wordpress site mhen i can't wait to get back to this
-  // And it's tuesdday and I am still working on wordpress site really hoping i can finish soon taking all my time
-  // This should be like the sixth day i took a break to work on the wordpress site hopefully 2moro i can get back // to thid
+  // Finally back to working on my side projects
 }
+
+function addMealFav(mealData) {
+  const favMeal = document.createElement("li");
+
+  favMeal.innerHTML = `
+        <img
+            src="${mealData.strMealThumb}"
+            alt="${mealData.strMeal}"
+        /><span>${mealData.strMeal}</span>
+        <button class="clear">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red">
+         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+          </svg>
+        </button>
+    `;
+
+  const btn = favMeal.querySelector(".clear");
+
+  btn.addEventListener("click", () => {
+    removeMealFromLS(mealData.idMeal);
+
+    fetchFavMeals();
+  });
+
+  favMeal.addEventListener("click", () => {
+    showMealInfo(mealData);
+  });
+
+  favoriteContainer.appendChild(favMeal);
+}
+
+searchBtn.addEventListener("click", async () => {
+  // clean container
+  // mealsEl.innerHTML = "";
+  const search = searchTerm.value;
+  const meals = await getMealsBySearch(search);
+
+    meals.forEach((meal) => {
+      addMeal(meal);
+    });
+
+});

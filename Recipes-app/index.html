@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
+
+
     <script defer src="script.js"></script>
+
 </head>
 
 <body>
     <div class="mobile-container">
         <header>
-            <input type="text" placeholder="Enter meal">
+            <input type="text" id="search-term" placeholder="Enter meal">
             <button id="search">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -22,23 +25,8 @@
         </header>
         <div class="fav-container">
             <h3>Favourite Meals</h3>
-            <ul class="fav-meals">
-                <li>
-                    <img src="https://www.themealdb.com/images/media/meals/x372ug1598733932.jpg" alt="">
-                    <span>Mulukhiyah</span>
-                </li>
-                <li>
-                    <img src="https://www.themealdb.com/images/media/meals/rlwcc51598734603.jpg" alt="">
-                    <span>Fatteh</span>
-                </li>
-                <li>
-                    <img src="https://www.themealdb.com/images/media/meals/lvn2d51598732465.jpg" alt="">
-                    <span>Beans and Bread</span>
-                </li>
-                <li>
-                    <img src="https://www.themealdb.com/images/media/meals/x372ug1598733932.jpg" alt="">
-                    <span>Mulukhiyah</span>
-                </li>
+            <ul class="fav-meals" id="fav-meals">
+
             </ul>
         </div>
         <div class="meals" id="meals">
