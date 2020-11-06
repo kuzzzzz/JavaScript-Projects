@@ -1,6 +1,10 @@
 const mealsEl = document.getElementById("meals");
 const favoriteContainer = document.getElementById("fav-meals");
 
+const mealPopup = document.getElementById("meal-popup");
+const mealInfoEl = document.getElementById("meal-info");
+const popupCloseBtn = document.getElementById("close-popup");
+
 const searchTerm = document.getElementById("search-term");
 const searchBtn = document.getElementById("search");
 
@@ -124,11 +128,11 @@ function addMealFav(mealData) {
   const favMeal = document.createElement("li");
 
   favMeal.innerHTML = `
-        <img
+        <img title="meal details"
             src="${mealData.strMealThumb}"
             alt="${mealData.strMeal}"
         /><span>${mealData.strMeal}</span>
-        <button class="clear">
+        <button class="clear" title="remove meal">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red">
          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
           </svg>
@@ -143,11 +147,58 @@ function addMealFav(mealData) {
     fetchFavMeals();
   });
 
-  favMeal.addEventListener("click", () => {
+  favMeal.querySelector("img").addEventListener("click", () => {
     showMealInfo(mealData);
   });
 
   favoriteContainer.appendChild(favMeal);
+}
+
+function showMealInfo(mealData) {
+  // clean it up
+  mealInfoEl.innerHTML = "";
+
+  // update the Meal info
+  const mealEl = document.createElement("div");
+
+  const ingredients = [];
+
+  // get ingredients and measures
+  for (let i = 1; i <= 20; i++) {
+    if (mealData["strIngredient" + i]) {
+      ingredients.push(
+        `${mealData["strIngredient" + i]} - ${mealData["strMeasure" + i]}`
+      );
+    } else {
+      break;
+    }
+  }
+
+  mealEl.innerHTML = `
+        <h1>${mealData.strMeal}</h1>
+        <img
+            src="${mealData.strMealThumb}"
+            alt="${mealData.strMeal}"
+        />
+        <p>
+        ${mealData.strInstructions}
+        </p>
+        <h3>Ingredients:</h3>
+        <ul>
+            ${ingredients
+              .map(
+                (ing) => `
+            <li>${ing}</li>
+            `
+              )
+              .join("")}
+        </ul>
+    `;
+
+  mealInfoEl.appendChild(mealEl);
+
+  // show the popup
+  mealPopup.classList.remove("hidden");
 }
 
 searchBtn.addEventListener("click", async () => {
@@ -159,9 +210,11 @@ searchBtn.addEventListener("click", async () => {
     meals.forEach((meal) => {
       addMeal(meal);
     });
-  }else{
-  alert(`enter a different food Because Americans don't eat  ${search} 
-  example: cake
-  `)
+  } else {
+    alert("Enter a different meal" + " other than this crap " + search);
   }
+});
+
+popupCloseBtn.addEventListener("click", () => {
+  mealPopup.classList.add("hidden");
 });
