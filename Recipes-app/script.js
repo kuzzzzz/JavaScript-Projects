@@ -218,3 +218,6 @@ searchBtn.addEventListener("click", async () => {
 popupCloseBtn.addEventListener("click", () => {
   mealPopup.classList.add("hidden");
 });
+
+
+// Keeping up the streek
