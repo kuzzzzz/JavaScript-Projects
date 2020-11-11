@@ -1,0 +1,29 @@
+{
+  "name": "amazona",
+  "version": "1.0.0",
+  "description": "JavaScript e-commerce site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server src --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuzzzzz/JavaScript-Projects.git"
+  },
+  "keywords": [
+    "portfolio",
+    "project",
+    "amazone",
+    "clone"
+  ],
+  "author": "kuzzzzz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kuzzzzz/JavaScript-Projects/issues"
+  },
+  "homepage": "https://github.com/kuzzzzz/JavaScript-Projects#readme",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}
