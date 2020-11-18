@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Allan&family=Montserrat:ital@1&family=Poppins&family=Sofia&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 66.2%;
+}
+
+body {
+  background-color: #eeeeff;
+  background-image: linear-gradient(315deg, #e0e0e0 0%, #e2e2e2 74%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+input {
+  background-color:  #be63a3;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(0, 0, 0, 0.1);
+  color: rgb(230, 213, 231);
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+input::placeholder {
+  color: rgb(248, 209, 209);
+}
+
+input:focus {
+  outline: none;
+}
+
+.card {
+  background-color: #852879;
+  background-image: linear-gradient(315deg, #f6caff 0%, #fc99ff 100%);
+  border-radius: 20px;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(0, 0, 0, 0.1);
+  display: flex;
+  padding: 3rem;
+  max-width: 800px;
+}
+.avatar {
+  border: 3px solid #722a68;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+}
+
+.user-info {
+  color: rgb(61, 45, 59);
+  margin-left: 2rem;
+}
+
+.user-info h2 {
+  margin-top: 0;
+}
+.user-info ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
+  max-width: 400px;
+}
+
+.user-info ul li {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.user-info ul li strong {
+  font-size: 0.9rem;
+  padding: 0;
+  margin-left: 0.4rem;
+}
+
+.repo {
+    background-color: #be63a3;
+    border-radius: 5px;
+    display: inline-block;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+}
