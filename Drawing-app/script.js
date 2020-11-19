@@ -20,6 +20,13 @@ canvas.addEventListener("mousedown", (e) => {
   y = e.offsetY;
 // console.log(e);
 });
+canvas.addEventListener("touchstart", (e) => {
+  isPressed = true;
+
+  x = x;
+  y = y;
+// console.log(e);
+});
 
 canvas.addEventListener("mouseup", (e) => {
   isPressed = false;
@@ -28,6 +35,14 @@ canvas.addEventListener("mouseup", (e) => {
   y = undefined;
 
 });
+canvas.addEventListener("touchend", (e) => {
+  isPressed = false;
+
+  x = undefined
+  y = undefined;
+
+});
+
 
 canvas.addEventListener("mousemove", (e) => {
     if (isPressed) {
@@ -41,34 +56,21 @@ canvas.addEventListener("mousemove", (e) => {
     }
 });
 
-// mobile events
-canvas.addEventListener("touchdown", (e) => {
-  isPressed = true;
-
-  x = e.offsetX;
-  y = e.offsetY;
-console.log(e);
-});
-
-canvas.addEventListener("touchdown", (e) => {
-  isPressed = false;
-
-  x = undefined
-  y = undefined;
-
-});
-
 canvas.addEventListener("touchmove", (e) => {
-  if (isPressed) {
-    const x2 = e.offsetX;
-    const y2 = e.offsetY;
+  e.preventDefault()
+    if (isPressed) {
+        const x2 = e.touches[0].clientX ;
+        const y2 = e.touches[0].clientY ;
 
-    drawCircle(x2, y2);
-    drawLine(x, y, x2, y2);
-    x = x2;
-    y = y2;
-  }
+        drawCircle(x2, y2);
+        drawLine(x, y, x2, y2);
+        x = x2;
+        y = y2;
+    }
 });
+
+// mobile events
+
 
 function drawCircle(x, y) {
   ctx.beginPath();
