@@ -18,7 +18,7 @@ canvas.addEventListener("mousedown", (e) => {
 
   x = e.offsetX;
   y = e.offsetY;
-console.log(e);
+// console.log(e);
 });
 
 canvas.addEventListener("mouseup", (e) => {
@@ -39,6 +39,35 @@ canvas.addEventListener("mousemove", (e) => {
         x = x2;
         y = y2;
     }
+});
+
+// mobile events
+canvas.addEventListener("touchdown", (e) => {
+  isPressed = true;
+
+  x = e.offsetX;
+  y = e.offsetY;
+console.log(e);
+});
+
+canvas.addEventListener("touchdown", (e) => {
+  isPressed = false;
+
+  x = undefined
+  y = undefined;
+
+});
+
+canvas.addEventListener("touchmove", (e) => {
+  if (isPressed) {
+    const x2 = e.offsetX;
+    const y2 = e.offsetY;
+
+    drawCircle(x2, y2);
+    drawLine(x, y, x2, y2);
+    x = x2;
+    y = y2;
+  }
 });
 
 function drawCircle(x, y) {
