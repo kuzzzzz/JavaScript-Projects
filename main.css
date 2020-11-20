@@ -1,25 +1,80 @@
-h1{
-    text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Allan&family=Montserrat:ital@1&family=Poppins&family=Sofia&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-main{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+html {
+  font-size: 15px;
 }
 
-a {
-  display: inline-block;
-  text-decoration: none;
-  padding: 1rem;
-  color: black;
-  background-color: coral;
-  margin-left: 2rem;
-  width: fit-content;
-  border-radius: 1rem;
+img{
+  width: 100%;
 }
-p{
-    font-size: 1.4rem;
-    font-family: 'Courier New', Courier, monospace;
-    
+body{
+  font-family: 'Poppins', sans-serif;
+  
 }
+header{
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  color: rgb(39, 29, 29);
+  background-color:rgba(245, 237, 245, 0.822);
+  margin-bottom:2rem;
+}
+main{
+  max-width: 1000px;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content: center;
+  gap:2rem;
+  margin: 1rem auto;
+ }
+
+a{
+  text-decoration:none;
+  border-radius: 20px;
+  padding:.7rem 2rem;
+  background-color:rgb(66, 39, 7);
+  color:white;
+}
+  .card{
+  margin:0 2rem;
+  }
+
+.img-container{
+  width: 250px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  object-fit: contain;
+}
+.img-container:hover .title{
+  transform: translateX(0);
+  transition: transform .5s ease-in-out;
+  
+}
+.title{
+   position: absolute;
+  top: 4rem;
+  background-color: rgba(124, 57, 3, 0.76);
+  height: 74%;
+  color:rgb(236, 222, 222);
+  width: 100%;
+  transform: translateY(131%);
+  transition: transform .5s ease-in-out;
+  text-align: center;
+  font-size: .8rem;
+  
+  }
+
+.links{
+display: flex;
+margin-top: 1rem;
+width: 250px;
+justify-content: space-between;
+}
+
