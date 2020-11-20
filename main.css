@@ -60,6 +60,7 @@ a{
 .title{
    position: absolute;
   top: 4rem;
+  padding: .6rem;
   background-color: rgba(124, 57, 3, 0.76);
   height: 74%;
   color:rgb(236, 222, 222);
