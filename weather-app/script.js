@@ -11,15 +11,12 @@ const url = (city) =>
     const resp = await fetch(url(city), { origin: "cors" });
     const respData = await resp.json();
 
-    console.log(respData);
 
     // addWeatherToPage(respData);
   }
 async function getWeatherByLocation(city) {
   const resp = await fetch(url(city), { origin: "cors" });
   const respData = await resp.json();
-
-  console.log(respData);
 
   addWeatherToPage(respData);
 }
