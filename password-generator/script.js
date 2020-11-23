@@ -53,8 +53,11 @@ function generatePassword() {
     const x = generateX();
     password += x;
   }
-
-  pwEl.innerText = password;
+  if (password) {
+    pwEl.innerText = password;
+  } else {
+    alert("choose a value");
+  }
 }
 
 function generateX() {
@@ -84,6 +87,7 @@ generateEl.addEventListener("click", generatePassword);
 
 copyEl.addEventListener("click", () => {
   const textarea = document.createElement("textarea");
+
   const password = pwEl.innerText;
 
   if (!password) {
