@@ -24,7 +24,6 @@ setTimeout(() => {
   }, 4700);
 }, 1000);
 
-
 setTimeout(() => {
   var stop2 = setInterval(() => {
     writeText(text2);
@@ -43,6 +42,7 @@ setTimeout(() => {
     clearInterval(stop3);
     document.body.innerHTML = `${text3}  <span class='rel'>⟲</span>`;
     let x = document.querySelector(".rel");
+    x.style.cursor = "pointer";
     x.addEventListener("click", () => {
       location.reload();
     });

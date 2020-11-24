@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Allan&family=Montserrat:ital@1&family=Poppins&family=Sofia&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 15px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: Poppins, sans-serif;
+  min-height: 100vh;
+  align-items: center;
+}
+
+h1{
+    text-align: center;
+
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+}
+
+a {
+  background-color: rgb(244, 250, 250);
+  color: rgb(21, 151, 64);
+  font-family: inherit;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  border: 2px solid green;
+  outline: none;
+  text-decoration: none;
+}
+
+@media (max-width: 700px) {
+  body {
+    font-size: 0.7rem;
+  }
+  a{
+  padding: 0.4rem 1.5rem;
+  }
+}
