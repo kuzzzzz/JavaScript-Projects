@@ -3,6 +3,7 @@ const text2 = "I know you are? cus I am 😉";
 const text3 = "Oo and I love ❤️️ my gf Nancy, to the  🌕 and 🔙 .";
 
 let index = 0;
+
 function writeText(params) {
   document.body.innerText = params.slice(0, index);
   index++;
@@ -11,6 +12,8 @@ function writeText(params) {
   }
 }
 
+// Todo convert setime out functions to a bigger functions that just takes in text input amount of screens and text to show
+
 setTimeout(() => {
   var stop = setInterval(() => {
     writeText(text);
@@ -18,8 +21,9 @@ setTimeout(() => {
   setTimeout(() => {
     clearInterval(stop);
     document.body.innerText = text;
-  }, 4000);
+  }, 4700);
 }, 1000);
+
 
 setTimeout(() => {
   var stop2 = setInterval(() => {
@@ -28,7 +32,7 @@ setTimeout(() => {
   setTimeout(() => {
     clearInterval(stop2);
     document.body.innerText = text2;
-  }, 3000);
+  }, 2700);
 }, 7000);
 
 setTimeout(() => {
@@ -42,5 +46,5 @@ setTimeout(() => {
     x.addEventListener("click", () => {
       location.reload();
     });
-  }, 4500);
+  }, 5100);
 }, 12500);
