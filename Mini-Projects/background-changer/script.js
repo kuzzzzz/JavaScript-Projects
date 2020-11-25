@@ -7,8 +7,14 @@ btn.addEventListener("click", () => {
 });
 
 function randomBg() {
-  return `hsl(${Math.floor(Math.random() * 360)}, 80%, 70%)`;
+  return `hsl(${Math.floor(Math.random() * 360)}, ${Math.floor(
+    Math.random() * 100
+  )}%, ${Math.floor(Math.random() * 100)}%)`;
 }
+
+btn.addEventListener("click", () => {
+  btn.innerText = currentBg;
+});
 btn.addEventListener("mouseenter", () => {
   btn.innerText = currentBg;
 });
