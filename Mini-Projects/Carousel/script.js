@@ -10,7 +10,7 @@ function run() {
     idx = 0;
   }
 
-  imgs.style.transform = `translateX(${-idx * 500}px)`;
+  imgs.style.transform = `translateX(${-idx * 400}px)`;
 
   setTimeout(run, 2000);
 }

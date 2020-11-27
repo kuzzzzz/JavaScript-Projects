@@ -17,7 +17,7 @@ body {
 .carousel {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    width: 500px;
+    width: 400px;
 }
 .image-container {
     display: flex;
@@ -25,7 +25,7 @@ body {
     transform: translateX(0);
     object-fit: cover;
   
-     width: 500px;
+     width: 400px;
 }
 img{
  width: 100%;
