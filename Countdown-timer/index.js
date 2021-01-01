@@ -5,7 +5,7 @@ const secondsEL = document.getElementById("seconds");
 const container = document.getElementById("container");
 const heading = document.getElementById("heading");
 
-const newYears = "1 Jan 2021";
+const newYears = "1 Jan 2022";
 
 function countdown() {
   const newYearsDate = new Date(newYears);
@@ -24,19 +24,19 @@ function countdown() {
   hoursEL.innerHTML = formatTime(hours);
   minutesEL.innerHTML = formatTime(minutes);
   secondsEL.innerHTML = formatTime(seconds);
+  
+  var x = new Date();
+  
+  if (x.getFullYear() == 2022) {
+    container.innerHTML = "";
+    heading.innerText = "";
+    document.body.style = "background-image:url(happy-new-year.gif)";
+  } 
 }
 
 function formatTime(time) {
   return time < 10 ? `0${time}` : time;
 }
-
-var x = new Date();
-
-if (x.getFullYear() == 2021) {
-  container.innerHTML = "";
-  heading.innerText = "";
-  document.body.style = "background-image:url(happy-new-year.gif)";
-} else {
   countdown();
   setInterval(countdown, 1000);
-}
+
