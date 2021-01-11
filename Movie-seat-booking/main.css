@@ -15,7 +15,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  font-family: 'poppins', sans-serif;
+  font-family: "poppins", sans-serif;
   margin: 0;
 }
 .movie-container {
@@ -33,23 +33,188 @@ body {
   -webkit-appearance: none;
   appearance: none;
 }
-/* .container {
+.container {
   perspective: 1000px;
   margin-bottom: 30px;
-} */
+}
 
-/* .screen {
+.seat {
+  background-color: #444451;
+  height: 12px;
+  width: 15px;
+  margin: 3px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.seat.selected {
+  background-color: #6feaf6;
+}
+
+.seat.occupied {
+  background-color: #fff;
+}
+.seat:nth-of-type(2) {
+  margin-right: 18px;
+}
+
+.seat:nth-last-of-type(2) {
+  margin-left: 18px;
+}
+
+.seat:not(.occupied):hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+.showcase .seat:not(.occupied):hover {
+  cursor: default;
+  transform: scale(1);
+}
+
+.showcase {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #777;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+.showcase li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+.showcase li small {
+  margin-left: 2px;
+}
+
+.row {
+  display: flex;
+}
+
+.screen {
   background-color: #fff;
   height: 70px;
   width: 100%;
   margin: 15px 0;
   transform: rotateX(-45deg);
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
-} */
+}
+
+/* Stick figures */
+
+.movie {
+  color: red;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  align-content: center;
+  justify-content: space-around;
+}
+.person {
+  width: 15px;
+  /* margin: 5px auto; */
+}
+.head {
+  background-color: rgb(51, 47, 47);
+  border-radius: 50px;
+  height: 15px;
+  width: 15px;
+}
+.torso {
+  background-color: rgb(104, 59, 59);
+  border-radius: 50px;
+  height: 20px;
+  width: 3px;
+  margin: 0 auto;
+    animation: torso linear 1s infinite;
+
+}
+.left-hand {
+  background-color: rgb(199, 94, 94);
+  border-radius: 50px;
+  height: 15px;
+  width: 3px;
+  transform: translateY(-17px) rotate(50deg);
+}
+.right-hand {
+  background-color: rgb(194, 115, 115);
+  border-radius: 50px;
+  height: 15px;
+  width: 3px;
+  transform: translateX(13px) translateY(-40px) rotate(50deg);
+}
+.right-leg {
+  background-color: rgb(219, 146, 146);
+  border-radius: 50px;
+  height: 25px;
+  width: 3px;
+  transform: translateX(10px) translateY(-57px) rotate(160deg);
+}
+.left-leg {
+  background-color: rgb(221, 164, 164);
+  border-radius: 50px;
+  height: 25px;
+  width: 3px;
+  transform: translateX(-5px) translateY(-39px) rotate(260deg);
+}
+
+.person-one .left-leg {
+  transform: translateX(-2px) translateY(-35px) rotate(230deg);
+  animation: left-leg linear 1s infinite;
+}
+.person-one .right-leg {
+  transform: translateX(10px) translateY(-57px) rotate(160deg);
+  animation: right-leg linear 1s infinite;
+}
+
+.person-one .right-hand {
+  transform: translateX(13px) translateY(-37px) rotate(90deg);
+}
+
+.person-two .left-leg {
+  transform: translateX(-2px) translateY(-35px) rotate(230deg);
+  animation: left-leg linear 1s infinite;
+
+}
+.person-two .right-leg {
+  transform: translateX(-2px) translateY(-35px) rotate(230deg);
+  animation: right-leg linear 1s infinite;
+
+}
+
 p.text {
   margin: 5px 0;
 }
 
 p.text span {
   color: #6feaf6;
+}
+
+@keyframes left-leg {
+  from {
+  transform: translateX(-2px) translateY(-35px) rotate(210deg);
+  }
+  to {
+  transform: translateX(-2px) translateY(-35px) rotate(230deg);
+  }
+}
+@keyframes right-leg {
+  from {
+  transform: translateX(10px) translateY(-57px) rotate(150deg);
+  }
+  to {
+  transform: translateX(10px) translateY(-57px) rotate(170deg);
+  }
+}
+@keyframes torso {
+  from {
+  transform:  rotate(0deg);
+  }
+  to {
+  transform:  rotate(5deg);
+  }
 }
