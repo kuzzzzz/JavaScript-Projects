@@ -116,6 +116,7 @@ body {
 }
 .person {
   width: 15px;
+  height: 65px;
   /* margin: 5px auto; */
 }
 .head {
